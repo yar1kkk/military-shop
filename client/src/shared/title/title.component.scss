@@ -1,0 +1,15 @@
+@import "../../variables.scss";
+
+.title {
+  @include font(auto, $font-weight-bold, $font-color-orange);
+  display: inline-block;
+  text-align: center;
+
+  h1 {
+    font-size: $font-size-40;
+  }
+
+  h2 {
+    font-size: $font-size-24;
+  }
+}

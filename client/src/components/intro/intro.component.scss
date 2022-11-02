@@ -1,0 +1,43 @@
+@import "../../variables.scss";
+
+.title-nav {
+  @include display-center();
+  flex-direction: column;
+
+  height: 20vh;
+  background-color: $black-spec;
+
+  ul {
+    display: flex;
+    margin-top: 28px;
+
+    li {
+      @include hover();
+      margin-right: 35px;
+    }
+  }
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  height: 85vh;
+  background: url("../../assets/images/intro.jpeg");
+  background-size: cover;
+
+  &__text {
+    margin-top: 20vh;
+  }
+
+  span {
+    @include font($font-size-100, $font-weight-light, $font-colour-white);
+    font-family: "Pacifico", cursive;
+
+    &:first-child {
+      margin-right: 30vw;
+    }
+  }
+}

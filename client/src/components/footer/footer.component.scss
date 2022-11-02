@@ -1,0 +1,42 @@
+@import "../../variables.scss";
+
+.footer {
+  height: 390px;
+  background-color: $brown;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: $font-weight-light;
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    margin: 56px 0px;
+  }
+
+  &__list {
+    margin-right: 5%;
+
+    h3 {
+      font-size: $font-size-24;
+      font-weight: $font-weight-regular;
+      margin-bottom: 20px;
+    }
+  }
+
+  ul {
+    li {
+      @include hover();
+      margin-bottom: 10px;
+    }
+  }
+
+  span {
+    margin-top: 40px;
+  }
+
+  a {
+    @include hover();
+    text-decoration: underline;
+  }
+}

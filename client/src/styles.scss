@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+//<Imports>
+@import "./reset.scss";
+@import "./variables.scss";
+//</Imports>
+
+//<Fonts>
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"); //font-family: 'Josefin Sans', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap"); // font-family: 'Pacifico', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap"); // font-family: 'Syne Mono', monospace;
+//</Fonts>
+
+//<Global styles>
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  color: $white;
+}
+
+//</Global styles>
+
+//<General classes>
+
+.container {
+  @media (min-width: $md1) {
+    width: $maxWidthContainer;
+  }
+  @media (max-width: $md1) {
+    width: 900px;
+  }
+  @media (max-width: $md2) {
+    width: 700px;
+  }
+  @media (max-width: $md3) {
+    padding: 0px 24px;
+  }
+  @media (max-width: $md4) {
+    padding: 0px 6px;
+  }
+}
+
+//</General classes>

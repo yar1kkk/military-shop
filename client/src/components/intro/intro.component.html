@@ -1,0 +1,13 @@
+<div class="title-nav">
+  <app-title></app-title>
+  <ul>
+    <li *ngFor="let item of items">{{ item | uppercase }}</li>
+  </ul>
+</div>
+<div class="intro">
+  <div class="intro__text">
+    <span>{{ word1 | uppercase }}</span>
+    <span>{{ word2 | uppercase }}</span>
+  </div>
+  <!-- <app-button content="<span>hello!</span>"></app-button> -->
+</div>
