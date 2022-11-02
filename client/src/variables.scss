@@ -1,0 +1,64 @@
+//<Colours>
+$white: #fff;
+$black: #000;
+$black-spec: #1b1b1b;
+$gray: #c4c4c4;
+$gray-light: #a8a8a8;
+$brown: #675a52;
+$orange: #ed903d;
+$salad: #c1d845;
+$chocolate: #b35b38;
+//</Colours>
+
+//<Mixins>
+
+@mixin hover() {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+@mixin display-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin font($font-size, $font-weight, $font-color) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $font-color;
+}
+//</Mixins>
+
+//<Font size>
+$font-size-100: 100px;
+$font-size-40: 40px;
+$font-size-24: 24px;
+$font-size-18: 18px;
+$font-size-14: 14px;
+//</Font size>
+
+//<Font weight>
+$font-weight-light: 300;
+$font-weight-light-italic: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+//</Font weight>
+
+//<Font colours>
+$font-colour-white: $white;
+$font-colour-black: $black;
+$font-color-orange: $orange;
+//</Font colours>
+
+//<Breakpoints>
+$maxWidthContainer: 1100px;
+$md0: 1654.98px;
+$md1: $maxWidthContainer + 12px;
+$md2: 991.98px;
+$md3: 767.98px;
+$md4: 479.98px;
+//</Breakpoints>
