@@ -21,10 +21,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer class="footer">
-      <div class="container footer__content">
+    <footer className="footer">
+      <div className="container footer__content">
         <Title />
-        <div class="footer__list">
+        <div className="footer__list">
           <h3>Help</h3>
           <ul>
             {helps.map((help) => (
@@ -32,7 +32,7 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-        <div class="footer__list">
+        <div className="footer__list">
           <h3>Shop</h3>
           <ul>
             {categories.map((category) => (
@@ -40,7 +40,7 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-        <div class="footer__list">
+        <div className="footer__list">
           <h3>Company</h3>
           <ul>
             {companyFeatures.map((feature) => (

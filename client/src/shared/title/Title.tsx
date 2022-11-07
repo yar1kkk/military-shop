@@ -6,7 +6,7 @@ const Title = () => {
   const country = "Ukraine";
 
   return (
-    <div class="title">
+    <div className="title">
       <h1>{title}</h1>
       <h2>{country}</h2>
     </div>

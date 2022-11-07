@@ -16,7 +16,7 @@ const Intro = () => {
 
   return (
     <div>
-      <div class="title-nav">
+      <div className="title-nav">
         <Title />
         <ul>
           {items.map((item) => (
@@ -24,10 +24,10 @@ const Intro = () => {
           ))}
         </ul>
       </div>
-      <div class="intro">
-        <div class="intro__text">
+      <div className="intro">
+        <div className="intro__text">
           <span>{word1.toUpperCase()}</span>
-          <span>{word2.toLowerCase()}</span>
+          <span>{word2.toUpperCase()}</span>
         </div>
       </div>
     </div>

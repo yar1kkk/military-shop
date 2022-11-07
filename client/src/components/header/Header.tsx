@@ -4,13 +4,13 @@ import ProfileIcon from "../../assets/icons/profile-normal.svg";
 
 const Header = () => {
   return (
-    <header class="header">
-      <div class="container header__center">
+    <header className="header">
+      <div className="container header__center">
         <ul>
           <li>Instagram</li>
           <li>Facebook</li>
         </ul>
-        <div class="header__search">
+        <div className="header__search">
           <span>Search</span>
           <input />
         </div>
