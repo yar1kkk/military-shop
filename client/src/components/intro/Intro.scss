@@ -5,7 +5,7 @@
   flex-direction: column;
 
   height: 20vh;
-  background-color: $black-spec;
+  background-color: $brown;
 
   ul {
     display: flex;
@@ -13,6 +13,7 @@
 
     li {
       @include hover();
+
       margin-right: 35px;
     }
   }
@@ -30,11 +31,17 @@
 
   &__text {
     margin-top: 20vh;
+    margin-bottom: 150px;
+  }
+
+  &__button {
+    width: 350px;
+    margin-right: 35%;
   }
 
   span {
-    @include font($font-size-100, $font-weight-light, $font-colour-white);
-    font-family: "Pacifico", cursive;
+    @include font($font-size-140, $font-weight-light, $font-colour-white);
+    font-family: "Syne Mono", monospace;
 
     &:first-child {
       margin-right: 30vw;

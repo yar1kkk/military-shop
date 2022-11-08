@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../shared/button/Button";
 import Title from "../../shared/title/Title";
 import "./Intro.scss";
 
@@ -19,8 +20,8 @@ const Intro = () => {
       <div className="title-nav">
         <Title />
         <ul>
-          {items.map((item) => (
-            <li>{item.toUpperCase()}</li>
+          {items.map((item, idx) => (
+            <li key={idx}>{item.toUpperCase()}</li>
           ))}
         </ul>
       </div>
@@ -28,6 +29,9 @@ const Intro = () => {
         <div className="intro__text">
           <span>{word1.toUpperCase()}</span>
           <span>{word2.toUpperCase()}</span>
+        </div>
+        <div className="intro__button">
+          <Button content="shop now" />
         </div>
       </div>
     </div>

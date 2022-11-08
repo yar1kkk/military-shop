@@ -1,0 +1,9 @@
+@import "../../styles/variables";
+
+.register {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../assets/images/register.jpeg");
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}

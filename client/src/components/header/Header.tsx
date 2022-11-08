@@ -1,8 +1,17 @@
 import React from "react";
 import "./Header.scss";
 import ProfileIcon from "../../assets/icons/profile-normal.svg";
+import { useLocation } from "react-router-dom";
 
-const Header = () => {
+interface IHeader {
+  handleShow: any;
+}
+
+const Header = ({ handleShow }: IHeader) => {
+  const location = useLocation();
+
+  if (location.pathname === "/login" || location.pathname === "/register")
+    return <div></div>;
   return (
     <header className="header">
       <div className="container header__center">
@@ -14,7 +23,7 @@ const Header = () => {
           <span>Search</span>
           <input />
         </div>
-        <div>
+        <div onClick={handleShow}>
           <img src={ProfileIcon} alt="profile" />
         </div>
       </div>

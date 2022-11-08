@@ -1,0 +1,58 @@
+@import "../../styles/variables";
+
+.sidebar {
+  position: fixed;
+  top: 0px;
+  right: -320px;
+  z-index: 100;
+  transition: all 350ms;
+  width: 320px;
+  @media (max-width: $md3) {
+    width: 100vw;
+    left: 0;
+  }
+  height: 100vh;
+  -moz-box-shadow: -3px 0 5px 0 #222;
+  -webkit-box-shadow: -3px 0 5px 0 #222;
+  box-shadow: -3px 0 5px 0 #222;
+  background-color: $black-spec;
+
+  @include display-center();
+  @include font($font-size-24, $font-weight-regular, $font-colour-white);
+  flex-direction: column;
+
+  span {
+    width: 50%;
+  }
+
+  h3 {
+    max-width: 90%;
+    text-align: center;
+    margin-bottom: 5%;
+  }
+
+  &__register {
+    @include font($font-size-18, $font-weight-light, $font-colour-orange);
+    margin-top: 15%;
+  }
+
+  &-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    background-color: $black-spec;
+    opacity: 0.8;
+  }
+
+  &-hide {
+    display: none;
+    transition: 500ms;
+  }
+}
+
+.sidebar.active {
+  right: 0px;
+}
