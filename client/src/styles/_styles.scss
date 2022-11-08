@@ -5,7 +5,6 @@
 
 //<Fonts>
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"); //font-family: 'Josefin Sans', sans-serif;
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap"); // font-family: 'Pacifico', cursive;
 @import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap"); // font-family: 'Syne Mono', monospace;
 //</Fonts>
 
@@ -15,6 +14,24 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   color: $white;
+}
+
+a {
+  text-decoration: none;
+  color: $font-colour-white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 //</Global styles>

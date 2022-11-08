@@ -7,8 +7,8 @@ const Title = () => {
 
   return (
     <div className="title">
-      <h1>{title}</h1>
-      <h2>{country}</h2>
+      <h1>{title.toUpperCase()}</h1>
+      <h2>{country.toUpperCase()}</h2>
     </div>
   );
 };

@@ -4,7 +4,7 @@ $black: #000;
 $black-spec: #1b1b1b;
 $gray: #c4c4c4;
 $gray-light: #a8a8a8;
-$brown: #675a52;
+$brown: #261e19;
 $orange: #ed903d;
 $salad: #c1d845;
 $chocolate: #b35b38;
@@ -34,8 +34,9 @@ $chocolate: #b35b38;
 //</Mixins>
 
 //<Font size>
-$font-size-100: 100px;
+$font-size-140: 140px;
 $font-size-40: 40px;
+$font-size-32: 32px;
 $font-size-24: 24px;
 $font-size-18: 18px;
 $font-size-14: 14px;
@@ -51,7 +52,8 @@ $font-weight-bold: 700;
 //<Font colours>
 $font-colour-white: $white;
 $font-colour-black: $black;
-$font-color-orange: $orange;
+$font-colour-orange: $orange;
+$font-colour-black-spec: $black-spec;
 //</Font colours>
 
 //<Breakpoints>
