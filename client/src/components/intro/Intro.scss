@@ -4,17 +4,31 @@
   @include display-center();
   flex-direction: column;
 
-  height: 20vh;
+  height: 22vh;
+  min-height: 100px;
   background-color: $brown;
+
+  @media (max-width: $md3) {
+    height: 15vh;
+  }
+
+  @media (max-width: $md5) {
+    height: 22vh;
+  }
 
   ul {
     display: flex;
-    margin-top: 28px;
+    justify-content: center;
+    flex-wrap: wrap;
 
     li {
       @include hover();
-
+      margin-top: 28px;
       margin-right: 35px;
+    }
+
+    @media ((max-width: $md3) or (max-height: $md3)) {
+      display: none;
     }
   }
 }
@@ -23,28 +37,74 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: relative;
 
   height: 85vh;
+  min-height: 600px;
   background: url("../../assets/images/intro.jpeg");
   background-size: cover;
+  background-position: 10%;
+
+  @media (max-width: $md1) {
+    background-position: 30%;
+  }
+
+  @media (max-width: $md2) {
+    background-position: 40%;
+  }
+
+  @media (max-width: $md3) {
+    background-position: 50%;
+  }
 
   &__text {
     margin-top: 20vh;
     margin-bottom: 150px;
+
+    @media (max-width: $md3) {
+      margin-top: 10vh;
+      margin-bottom: 15vh;
+    }
+
+    @media (max-width: $md5) {
+      display: flex;
+      flex-direction: column;
+
+      margin-top: 5vh;
+      margin-bottom: 10vh;
+    }
   }
 
   &__button {
     width: 350px;
     margin-right: 35%;
+
+    @media (max-width: $md3) {
+      margin-right: 0;
+    }
+
+    @media (max-width: $md5) {
+      width: 80%;
+    }
   }
 
   span {
     @include font($font-size-140, $font-weight-light, $font-colour-white);
     font-family: "Syne Mono", monospace;
 
+    @media (max-width: $md3) {
+      font-size: $font-size-100;
+    }
+
     &:first-child {
       margin-right: 30vw;
+
+      @media (max-width: $md3) {
+        margin-right: 10vw;
+      }
+
+      @media (max-width: $md5) {
+        margin-right: 0;
+      }
     }
   }
 }

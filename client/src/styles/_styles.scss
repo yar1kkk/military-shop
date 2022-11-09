@@ -10,6 +10,10 @@
 
 //<Global styles>
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
@@ -49,6 +53,7 @@ button {
     width: 700px;
   }
   @media (max-width: $md3) {
+    width: 100%;
     padding: 0px 24px;
   }
   @media (max-width: $md4) {

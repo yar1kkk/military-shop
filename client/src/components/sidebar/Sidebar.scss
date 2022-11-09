@@ -8,8 +8,8 @@
   transition: all 350ms;
   width: 320px;
   @media (max-width: $md3) {
-    width: 100vw;
-    left: 0;
+    width: 100%;
+    right: -100%;
   }
   height: 100vh;
   -moz-box-shadow: -3px 0 5px 0 #222;
@@ -26,14 +26,16 @@
   }
 
   h3 {
-    max-width: 90%;
+    max-width: 270px;
     text-align: center;
     margin-bottom: 5%;
+    line-height: 35px;
+    font-size: $font-size-32;
   }
 
   &__register {
     @include font($font-size-18, $font-weight-light, $font-colour-orange);
-    margin-top: 15%;
+    margin-top: 25%;
   }
 
   &-blur {
@@ -51,8 +53,33 @@
     display: none;
     transition: 500ms;
   }
+
+  &__close {
+    @include font($font-size-24, $font-weight-light, $font-colour-orange);
+
+    display: none;
+    font-weight: $font-weight-light;
+    align-items: center;
+
+    position: absolute;
+    top: 3.3%;
+    right: 4%;
+
+    p {
+      margin-right: 5px;
+    }
+
+    @media (max-width: $md3) {
+      display: flex;
+    }
+  }
 }
 
 .sidebar.active {
   right: 0px;
+
+  @media (max-width: $md3) {
+    width: 100%;
+    right: 0;
+  }
 }

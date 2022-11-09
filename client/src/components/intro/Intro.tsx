@@ -17,7 +17,7 @@ const Intro = () => {
 
   return (
     <div>
-      <div className="title-nav">
+      <div className={"title-nav"}>
         <Title />
         <ul>
           {items.map((item, idx) => (

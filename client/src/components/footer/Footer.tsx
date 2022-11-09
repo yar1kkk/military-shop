@@ -28,30 +28,34 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container footer__content">
-        <Title />
-        <div className="footer__list">
-          <h3>Help</h3>
-          <ul>
-            {helps.map((help, idx) => (
-              <li key={idx}>{help}</li>
-            ))}
-          </ul>
+        <div className="footer__title">
+          <Title />
         </div>
-        <div className="footer__list">
-          <h3>Shop</h3>
-          <ul>
-            {categories.map((category, idx) => (
-              <li key={idx}>{category}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="footer__list">
-          <h3>Company</h3>
-          <ul>
-            {companyFeatures.map((feature, idx) => (
-              <li key={idx}>{feature}</li>
-            ))}
-          </ul>
+        <div className="footer__lists">
+          <div className="footer__list">
+            <h3>Shop</h3>
+            <ul>
+              {categories.map((category, idx) => (
+                <li key={idx}>{category}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="footer__list">
+            <h3>Company</h3>
+            <ul>
+              {companyFeatures.map((feature, idx) => (
+                <li key={idx}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="footer__list">
+            <h3>Help</h3>
+            <ul>
+              {helps.map((help, idx) => (
+                <li key={idx}>{help}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
       <span>
