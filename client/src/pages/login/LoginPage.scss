@@ -3,7 +3,7 @@
 .login {
   width: 100vw;
   height: 100vh;
-  min-height: 600px;
+  min-height: 900px;
   background: url("../../assets/images/intro.jpeg");
   background-size: cover;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
@@ -11,7 +11,7 @@
   justify-content: center;
 
   @media (max-width: $md1) {
-    background-position: 10%;
+    background-position: 30%;
   }
 
   @media (max-width: $md2) {
@@ -73,19 +73,7 @@
     }
 
     input {
-      @include font($font-size-18, $font-weight-regular, $font-colour-orange);
-      background-color: $black-spec;
-      border: 1px solid $orange;
-      outline: none;
-
-      height: 6%;
-      min-height: 50px;
       margin-top: 8%;
-      padding-left: 10px;
-
-      @media (max-width: $md4) {
-        height: 8%;
-      }
     }
 
     span {

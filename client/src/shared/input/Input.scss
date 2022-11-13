@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+
+.input {
+  @include font($font-size-18, $font-weight-regular, $font-colour-orange);
+  background-color: $black-spec;
+  border: 1px solid $orange;
+  outline: none;
+
+  height: 6%;
+  min-height: 50px;
+  padding-left: 10px;
+
+  @media (max-width: $md4) {
+    height: 8%;
+  }
+}
