@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../shared/button/Button";
+import Input from "../../shared/input/Input";
 import Title from "../../shared/title/Title";
 import "./LoginPage.scss";
 
@@ -18,15 +19,15 @@ const LoginPage = () => {
       <div className="login__content">
         <Title />
         <h2 className="login__content-title">Enter your data</h2>
-        <input
-          onChange={(e) => setValue(e.target.value)}
+        <Input
+          onChange={setValue}
           value={value}
-          placeholder="Username or email"
+          placeholder={"Username or email"}
         />
-        <input
-          onChange={(e) => setPassword(e.target.value)}
+        <Input
+          onChange={setPassword}
           value={password}
-          placeholder="Password"
+          placeholder={"Password"}
         />
         <div className="login__content-button">
           <Button content="Log in" filled handler={handleSubmit} />
@@ -36,7 +37,7 @@ const LoginPage = () => {
           <a href="/register"> Register now!</a>
         </p>
         <span className="login__content-back">
-          <a href="/">&lt;-- BACK TO HOME</a>
+          <a href="/">&lt;-- BACK HOME</a>
         </span>
       </div>
     </div>

@@ -2,26 +2,12 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Title from "../../shared/title/Title";
 import "./Footer.scss";
+import { categories } from "../../data/categories";
+import { companyFeatures } from "../../data/companyFeatures";
+import { contacts } from "../../data/contacts";
 
 const Footer = () => {
   const location = useLocation();
-
-  const helps = [
-    "(067) 74 28 205",
-    "slavkovaskiv@gmail.com",
-    "(066) 75 30 820",
-    "s.t.a.s.2003zsa@gmail.com",
-  ];
-
-  const categories = ["category", "category", "category", "category"];
-
-  const companyFeatures = [
-    "About Us",
-    "Our Story",
-    "Partnership",
-    "Video",
-    "Reviews",
-  ];
 
   if (location.pathname === "/login" || location.pathname === "/register")
     return <div></div>;
@@ -51,8 +37,8 @@ const Footer = () => {
           <div className="footer__list">
             <h3>Help</h3>
             <ul>
-              {helps.map((help, idx) => (
-                <li key={idx}>{help}</li>
+              {contacts.map((contact, idx) => (
+                <li key={idx}>{contact}</li>
               ))}
             </ul>
           </div>

@@ -3,7 +3,89 @@
 .register {
   width: 100vw;
   height: 100vh;
+  min-height: 900px;
   background: url("../../assets/images/register.jpeg");
   background-size: cover;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: $md1) {
+    background-position: 10%;
+  }
+
+  @media (max-width: $md2) {
+    background-position: 40%;
+  }
+
+  @media (max-width: $md3) {
+    background-position: 50%;
+  }
+
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+    @media (max-width: $md2) {
+      width: 50%;
+    }
+
+    @media (max-width: $md3) {
+      width: 80%;
+      padding-top: 10%;
+    }
+
+    @media (max-width: $md4) {
+      width: 90%;
+    }
+
+    h2 {
+      @include font($font-size-32, $font-weight-bold, $font-colour-white);
+      text-align: center;
+      margin-bottom: 15%;
+    }
+
+    input {
+      margin-top: 5%;
+    }
+
+    &-button {
+      margin-top: 7%;
+    }
+
+    &-doubleinput {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3%;
+
+      div {
+        width: 48%;
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+
+    &-back {
+      @include font($font-size-18, $font-weight-bold, $font-colour-orange);
+
+      margin-top: 10%;
+      text-align: center;
+      a {
+        color: $font-colour-orange;
+      }
+    }
+
+    span {
+      text-align: center;
+      margin-top: 7%;
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
 }

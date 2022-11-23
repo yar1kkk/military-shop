@@ -1,0 +1,62 @@
+@import "../../styles/variables";
+
+.subscribe {
+  height: 350px;
+  background: url("../../assets/images/militaryguy.jpeg");
+  background-size: cover;
+  background-position: 10%;
+
+  @media (max-width: $md3) {
+    background-position: 60%;
+  }
+
+  @media (max-width: $md5) {
+    background-position: 70%;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h2 {
+    margin-top: 50px;
+    font-size: $font-size-100;
+
+    @media (max-width: $md3) {
+      font-size: $font-size-70;
+    }
+
+    @media (max-width: $md5) {
+      font-size: $font-size-55;
+    }
+  }
+
+  p {
+    font-size: $font-size-32;
+    font-weight: $font-weight-light;
+
+    @media (max-width: $md3) {
+      font-size: $font-size-18;
+    }
+  }
+
+  &__input-button {
+    margin-top: 50px;
+    width: 480px;
+    height: 60px;
+    display: flex;
+
+    @media (max-width: $md3) {
+      width: 90%;
+    }
+
+    input {
+      width: 250%;
+      font-size: $font-size-24;
+      font-weight: $font-weight-light;
+      padding: 10px;
+      outline: none;
+    }
+  }
+}
