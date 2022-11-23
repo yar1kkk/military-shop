@@ -6,9 +6,13 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
 	"github.com/yar1kkk/military-shop/config"
+	"github.com/yar1kkk/military-shop/handler"
+	"github.com/yar1kkk/military-shop/route"
+	"github.com/yar1kkk/military-shop/service"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
@@ -20,14 +24,14 @@ var (
 	mongoclient *mongo.Client
 	redisclient *redis.Client
 
-	userService         services.UserService
-	UserController      controllers.UserController
-	UserRouteController routes.UserRouteController
+	userService         service.UserService
+	UserController      handler.UserController
+	UserRouteController route.UserRouteController
 
 	authCollection      *mongo.Collection
-	authService         services.AuthService
-	AuthController      controllers.AuthController
-	AuthRouteController routes.AuthRouteController
+	authService         service.AuthService
+	AuthController      handler.AuthController
+	AuthRouteController route.AuthRouteController
 )
 
 func init() {
@@ -70,13 +74,13 @@ func init() {
 
 	// Collections
 	authCollection = mongoclient.Database("golang_mongodb").Collection("users")
-	userService = services.NewUserServiceImpl(authCollection, ctx)
-	authService = services.NewAuthService(authCollection, ctx)
-	AuthController = controllers.NewAuthController(authService, userService)
-	AuthRouteController = routes.NewAuthRouteController(AuthController)
+	userService = service.NewUserServiceImpl(authCollection, ctx)
+	authService = service.NewAuthService(authCollection, ctx)
+	AuthController = handler.NewAuthController(authService, userService)
+	AuthRouteController = route.NewAuthRouteController(AuthController)
 
-	UserController = controllers.NewUserController(userService)
-	UserRouteController = routes.NewRouteUserController(UserController)
+	UserController = handler.NewUserController(userService)
+	UserRouteController = route.NewRouteUserController(UserController)
 
 	server = gin.Default()
 }
@@ -113,4 +117,3 @@ func main() {
 	UserRouteController.UserRoute(router, userService)
 	log.Fatal(server.Run(":" + config.Port))
 }
-

@@ -1,4 +1,4 @@
-package services
+package service
 
 import "github.com/yar1kkk/military-shop/model"
 

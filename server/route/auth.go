@@ -15,7 +15,7 @@ func NewAuthRouteController(authController handler.AuthController) AuthRouteCont
 	return AuthRouteController{authController}
 }
 
-func (rc *AuthRouteController) AuthRoute(rg *gin.RouterGroup, userService services.UserService) {
+func (rc *AuthRouteController) AuthRoute(rg *gin.RouterGroup, userService service.UserService) {
 	router := rg.Group("/auth")
 
 	router.POST("/register", rc.authController.SignUpUser)

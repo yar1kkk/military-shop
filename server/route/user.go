@@ -15,7 +15,7 @@ func NewRouteUserController(userController handler.UserController) UserRouteCont
 	return UserRouteController{userController}
 }
 
-func (uc *UserRouteController) UserRoute(rg *gin.RouterGroup, userService services.UserService) {
+func (uc *UserRouteController) UserRoute(rg *gin.RouterGroup, userService service.UserService) {
 
 	router := rg.Group("users")
 	router.Use(middleware.DeserializeUser(userService))

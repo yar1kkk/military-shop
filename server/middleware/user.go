@@ -11,7 +11,7 @@ import (
 	"github.com/yar1kkk/military-shop/util"
 )
 
-func DeserializeUser(userService services.UserService) gin.HandlerFunc {
+func DeserializeUser(userService service.UserService) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		var access_token string
 		cookie, err := ctx.Cookie("access_token")
