@@ -19,6 +19,15 @@ var (
 	ctx         context.Context
 	mongoclient *mongo.Client
 	redisclient *redis.Client
+
+	userService         services.UserService
+	UserController      controllers.UserController
+	UserRouteController routes.UserRouteController
+
+	authCollection      *mongo.Collection
+	authService         services.AuthService
+	AuthController      controllers.AuthController
+	AuthRouteController routes.AuthRouteController
 )
 
 func init() {
@@ -29,6 +38,7 @@ func init() {
 
 	ctx = context.TODO()
 
+	// Connect to MongoDB
 	mongoconn := options.Client().ApplyURI(config.DBUri)
 	mongoclient, err := mongo.Connect(ctx, mongoconn)
 
@@ -42,6 +52,7 @@ func init() {
 
 	fmt.Println("MongoDB successfully connected...")
 
+	// Connect to Redis
 	redisclient = redis.NewClient(&redis.Options{
 		Addr: config.RedisUri,
 	})
@@ -56,6 +67,16 @@ func init() {
 	}
 
 	fmt.Println("Redis client connected successfully...")
+
+	// Collections
+	authCollection = mongoclient.Database("golang_mongodb").Collection("users")
+	userService = services.NewUserServiceImpl(authCollection, ctx)
+	authService = services.NewAuthService(authCollection, ctx)
+	AuthController = controllers.NewAuthController(authService, userService)
+	AuthRouteController = routes.NewAuthRouteController(AuthController)
+
+	UserController = controllers.NewUserController(userService)
+	UserRouteController = routes.NewRouteUserController(UserController)
 
 	server = gin.Default()
 }
@@ -77,10 +98,19 @@ func main() {
 		panic(err)
 	}
 
+	corsConfig := cors.DefaultConfig()
+	corsConfig.AllowOrigins = []string{"http://localhost:8000", "http://localhost:3000"}
+	corsConfig.AllowCredentials = true
+
+	server.Use(cors.New(corsConfig))
+
 	router := server.Group("/api")
 	router.GET("/healthchecker", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{"status": "success", "message": value})
 	})
 
+	AuthRouteController.AuthRoute(router, userService)
+	UserRouteController.UserRoute(router, userService)
 	log.Fatal(server.Run(":" + config.Port))
 }
+

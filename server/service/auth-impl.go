@@ -30,7 +30,7 @@ func (uc *AuthServiceImpl) SignUpUser(user *models.SignUpInput) (*models.DBRespo
 	user.Verified = true
 	user.Role = "user"
 
-	hashedPassword, _ := utils.HashPassword(user.Password)
+	hashedPassword, _ := util.HashPassword(user.Password)
 	user.Password = hashedPassword
 	res, err := uc.collection.InsertOne(uc.ctx, &user)
 
