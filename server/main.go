@@ -42,7 +42,6 @@ func init() {
 
 	ctx = context.TODO()
 
-	// Connect to MongoDB
 	mongoconn := options.Client().ApplyURI(config.DBUri)
 	mongoclient, err := mongo.Connect(ctx, mongoconn)
 
@@ -56,7 +55,6 @@ func init() {
 
 	fmt.Println("MongoDB successfully connected...")
 
-	// Connect to Redis
 	redisclient = redis.NewClient(&redis.Options{
 		Addr: config.RedisUri,
 	})
@@ -72,7 +70,6 @@ func init() {
 
 	fmt.Println("Redis client connected successfully...")
 
-	// Collections
 	authCollection = mongoclient.Database("golang_mongodb").Collection("users")
 	userService = service.NewUserServiceImpl(authCollection, ctx)
 	authService = service.NewAuthService(authCollection, ctx)
