@@ -3,6 +3,6 @@ package service
 import "github.com/yar1kkk/military-shop/model"
 
 type AuthService interface {
-	SignUpUser(*models.SignUpInput) (*models.DBResponse, error)
-	SignInUser(*models.SignInInput) (*models.DBResponse, error)
+	SignUpUser(*model.SignUpInput) (*model.DBResponse, error)
+	SignInUser(*model.SignInInput) (*model.DBResponse, error)
 }

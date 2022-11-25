@@ -23,7 +23,7 @@ func NewAuthController(authService service.AuthService, userService service.User
 }
 
 func (ac *AuthController) SignUpUser(ctx *gin.Context) {
-	var user *models.SignUpInput
+	var user *model.SignUpInput
 
 	if err := ctx.ShouldBindJSON(&user); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"status": "fail", "message": err.Error()})
@@ -46,11 +46,11 @@ func (ac *AuthController) SignUpUser(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusCreated, gin.H{"status": "success", "data": gin.H{"user": models.FilteredResponse(newUser)}})
+	ctx.JSON(http.StatusCreated, gin.H{"status": "success", "data": gin.H{"user": model.FilteredResponse(newUser)}})
 }
 
 func (ac *AuthController) SignInUser(ctx *gin.Context) {
-	var credentials *models.SignInInput
+	var credentials *model.SignInInput
 
 	if err := ctx.ShouldBindJSON(&credentials); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"status": "fail", "message": err.Error()})

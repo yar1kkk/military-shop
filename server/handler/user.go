@@ -17,7 +17,7 @@ func NewUserController(userService service.UserService) UserController {
 }
 
 func (uc *UserController) GetMe(ctx *gin.Context) {
-	currentUser := ctx.MustGet("currentUser").(*models.DBResponse)
+	currentUser := ctx.MustGet("currentUser").(*model.DBResponse)
 
-	ctx.JSON(http.StatusOK, gin.H{"status": "success", "data": gin.H{"user": models.FilteredResponse(currentUser)}})
+	ctx.JSON(http.StatusOK, gin.H{"status": "success", "data": gin.H{"user": model.FilteredResponse(currentUser)}})
 }

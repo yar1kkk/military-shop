@@ -19,17 +19,17 @@ func NewUserServiceImpl(collection *mongo.Collection, ctx context.Context) UserS
 	return &UserServiceImpl{collection, ctx}
 }
 
-func (us *UserServiceImpl) FindUserById(id string) (*models.DBResponse, error) {
+func (us *UserServiceImpl) FindUserById(id string) (*model.DBResponse, error) {
 	oid, _ := primitive.ObjectIDFromHex(id)
 
-	var user *models.DBResponse
+	var user *model.DBResponse
 
 	query := bson.M{"_id": oid}
 	err := us.collection.FindOne(us.ctx, query).Decode(&user)
 
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
-			return &models.DBResponse{}, err
+			return &model.DBResponse{}, err
 		}
 		return nil, err
 	}
@@ -37,15 +37,15 @@ func (us *UserServiceImpl) FindUserById(id string) (*models.DBResponse, error) {
 	return user, nil
 }
 
-func (us *UserServiceImpl) FindUserByEmail(email string) (*models.DBResponse, error) {
-	var user *models.DBResponse
+func (us *UserServiceImpl) FindUserByEmail(email string) (*model.DBResponse, error) {
+	var user *model.DBResponse
 
 	query := bson.M{"email": strings.ToLower(email)}
 	err := us.collection.FindOne(us.ctx, query).Decode(&user)
 
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
-			return &models.DBResponse{}, err
+			return &model.DBResponse{}, err
 		}
 		return nil, err
 	}

@@ -1,4 +1,4 @@
-package models
+package model
 
 import (
 	"time"
@@ -10,7 +10,7 @@ type SignUpInput struct {
 	Name            string    `json:"name" bson:"name" binding:"required"`
 	Email           string    `json:"email" bson:"email" binding:"required"`
 	Password        string    `json:"password" bson:"password" binding:"required,min=8"`
-	PasswordConfirm string    `json:"passwordConfirm" bson:"passwordConfirm,omitempty" binding:"required"`
+	PasswordConfirm string    `json:"password_confirm" bson:"password_confirm,omitempty" binding:"required"`
 	Role            string    `json:"role" bson:"role"`
 	Verified        bool      `json:"verified" bson:"verified"`
 	CreatedAt       time.Time `json:"created_at" bson:"created_at"`
@@ -27,7 +27,7 @@ type DBResponse struct {
 	Name            string             `json:"name" bson:"name"`
 	Email           string             `json:"email" bson:"email"`
 	Password        string             `json:"password" bson:"password"`
-	PasswordConfirm string             `json:"passwordConfirm,omitempty" bson:"passwordConfirm,omitempty"`
+	PasswordConfirm string             `json:"password_confirm,omitempty" bson:"password_confirm,omitempty"`
 	Role            string             `json:"role" bson:"role"`
 	Verified        bool               `json:"verified" bson:"verified"`
 	CreatedAt       time.Time          `json:"created_at" bson:"created_at"`
