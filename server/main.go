@@ -32,6 +32,7 @@ var (
 	authService         service.AuthService
 	AuthController      handler.AuthController
 	AuthRouteController route.AuthRouteController
+	SessionRouteController route.SessionRouteController
 )
 
 func init() {
@@ -75,7 +76,7 @@ func init() {
 	authService = service.NewAuthService(authCollection, ctx)
 	AuthController = handler.NewAuthController(authService, userService)
 	AuthRouteController = route.NewAuthRouteController(AuthController)
-
+	SessionRouteController = route.NewSessionRouteController(AuthController)
 	UserController = handler.NewUserController(userService)
 	UserRouteController = route.NewRouteUserController(UserController)
 
@@ -112,5 +113,6 @@ func main() {
 
 	AuthRouteController.AuthRoute(router, userService)
 	UserRouteController.UserRoute(router, userService)
+	SessionRouteController.SessionRoute(router)
 	log.Fatal(server.Run(":" + config.Port))
 }
