@@ -1,0 +1,66 @@
+package service
+
+import (
+	"context"
+	"errors"
+	"strings"
+	"time"
+
+	"github.com/yar1kkk/military-shop/model"
+	"github.com/yar1kkk/military-shop/util"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
+)
+
+type AuthServiceImpl struct {
+	collection *mongo.Collection
+	ctx        context.Context
+}
+
+func NewAuthService(collection *mongo.Collection, ctx context.Context) AuthService {
+	return &AuthServiceImpl{collection, ctx}
+}
+
+func (uc *AuthServiceImpl) SignUpUser(user *model.SignUpInput) (*model.DBResponse, error) {
+	user.CreatedAt = time.Now()
+	user.UpdatedAt = user.CreatedAt
+	user.Email = strings.ToLower(user.Email)
+	user.PasswordConfirm = ""
+	user.Verified = true
+	user.Role = "user"
+
+	hashedPassword, _ := util.HashPassword(user.Password)
+	user.Password = hashedPassword
+	res, err := uc.collection.InsertOne(uc.ctx, &user)
+
+	if err != nil {
+		if er, ok := err.(mongo.WriteException); ok && er.WriteErrors[0].Code == 11000 {
+			return nil, errors.New("user with that email already exist")
+		}
+		return nil, err
+	}
+
+	opt := options.Index()
+	opt.SetUnique(true)
+	index := mongo.IndexModel{Keys: bson.M{"email": 1}, Options: opt}
+
+	if _, err := uc.collection.Indexes().CreateOne(uc.ctx, index); err != nil {
+		return nil, errors.New("could not create index for email")
+	}
+
+	var newUser *model.DBResponse
+	query := bson.M{"_id": res.InsertedID}
+
+	err = uc.collection.FindOne(uc.ctx, query).Decode(&newUser)
+	if err != nil {
+		return nil, err
+	}
+
+	return newUser, nil
+}
+
+func (uc *AuthServiceImpl) SignInUser(*model.SignInInput) (*model.DBResponse, error) {
+	return nil, nil
+}
+
