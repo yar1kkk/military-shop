@@ -24,6 +24,7 @@ type Config struct {
 	GoogleOAuthRedirectUrl string        `mapstructure:"GOOGLE_OAUTH_REDIRECT_URL"`
 }
 
+// config
 func LoadConfig(path string) (config Config, err error) {
 	viper.AddConfigPath(path)
 	viper.SetConfigType("env")
