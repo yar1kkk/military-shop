@@ -28,10 +28,10 @@ var (
 	UserController      handler.UserController
 	UserRouteController route.UserRouteController
 
-	authCollection      *mongo.Collection
-	authService         service.AuthService
-	AuthController      handler.AuthController
-	AuthRouteController route.AuthRouteController
+	authCollection         *mongo.Collection
+	authService            service.AuthService
+	AuthController         handler.AuthController
+	AuthRouteController    route.AuthRouteController
 	SessionRouteController route.SessionRouteController
 )
 
@@ -64,7 +64,7 @@ func init() {
 		panic(err)
 	}
 
-	err = redisclient.Set(ctx, "test", "Welcome to Golang with Redis and MongoDB", 0).Err()
+	err = redisclient.Set(ctx, "test", "Starting... Success!!!", 0).Err()
 	if err != nil {
 		panic(err)
 	}
@@ -107,7 +107,7 @@ func main() {
 	server.Use(cors.New(corsConfig))
 
 	router := server.Group("/api")
-	router.GET("/healthchecker", func(ctx *gin.Context) {
+	router.GET("/check", func(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{"status": "success", "message": value})
 	})
 
@@ -116,3 +116,8 @@ func main() {
 	SessionRouteController.SessionRoute(router)
 	log.Fatal(server.Run(":" + config.Port))
 }
+
+
+
+
+

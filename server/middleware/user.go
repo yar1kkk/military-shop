@@ -47,3 +47,5 @@ func DeserializeUser(userService service.UserService) gin.HandlerFunc {
 		ctx.Next()
 	}
 }
+
+
